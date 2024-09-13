@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load html2pdf.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Editable Resume Builder</h1>
+    </header>
+
+    <section class="form-section">
+        <h2>Fill Your Details</h2>
+        <form id="resumeForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required><br>
+
+            <label for="education">Education:</label>
+            <div id="education-fields">
+                <textarea name="education" placeholder="List your education"></textarea>
+            </div>
+            <button type="button" onclick="addEducationField()">Add More Education</button><br>
+
+            <label for="skills">Skills:</label>
+            <div id="skills-fields">
+                <textarea name="skills" placeholder="List your skills"></textarea>
+            </div>
+            <button type="button" onclick="addSkillsField()">Add More Skills</button><br>
+
+            <label for="experience">Work Experience:</label>
+            <div id="experience-fields">
+                <textarea name="experience" placeholder="Describe your work experience"></textarea>
+            </div>
+            <button type="button" onclick="addExperienceField()">Add More Experience</button><br>
+
+            <!-- Project Section -->
+            <label for="projects">Projects:</label>
+            <div id="project-fields">
+                <input type="text" name="projectName" placeholder="Project Name">
+                <input type="url" name="projectURL" placeholder="Project URL">
+            </div>
+            <button type="button" onclick="addProjectField()">Add More Projects</button><br>
+
+            <label for="profilePicture">Profile Picture:</label>
+            <input type="file" id="profilePicture" accept="image/*"><br>
+
+            <button type="submit">Generate Resume</button>
+        </form>
+    </section>
+
+    <section class="resume-section">
+        <div id="resume" class="resume">
+            <h2> RESUME</h2>
+            <div id="personal-info">
+                <img id="profile-image" class="profile-image" alt="Profile Picture">
+                <h3 id="display-name"></h3>
+                <p id="display-contact"></p>
+            </div>
+            <h4>Education</h4>
+            <ul id="display-education"></ul>
+
+            <h4>Skills</h4>
+            <ul id="display-skills"></ul>
+
+            <h4>Work Experience</h4>
+            <ul id="display-experience"></ul>
+
+            <!-- Display Projects -->
+            <h4>Projects</h4>
+            <ul id="display-projects"></ul>
+        </div>
+        <button id="downloadBtn">Download as PDF</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
